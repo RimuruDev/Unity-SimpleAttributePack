@@ -168,9 +168,12 @@ namespace NaughtyAttributes.Editor
 
                     if (!Application.isPlaying)
                     {
-                        // Set target object and scene dirty to serialize changes to disk
-                        EditorUtility.SetDirty(target);
-
+                        if(target != null)
+                        {
+                            // Set target object and scene dirty to serialize changes to disk
+                            EditorUtility.SetDirty(target);
+                        }
+                        
                         PrefabStage stage = PrefabStageUtility.GetCurrentPrefabStage();
                         if (stage != null)
                         {
